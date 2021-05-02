@@ -5,10 +5,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebApiSecuredWithApiKey.Attributes;
 using WebApiSecuredWithApiKey.Models;
 
 namespace WebApiSecuredWithApiKey.Controllers
 {
+    [ApiKeyAuthorization(AllowedFor = new[] { ApiKeySetup.FrontendClientApiKey })]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
